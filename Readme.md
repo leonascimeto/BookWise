@@ -20,14 +20,8 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 - [ ] Buscar emprestimos pendententes
 
 ### Requisitos Funcionais:
-- [ ] Registrar Novo Livro
-    - [ ] O Usuario deve fornecer informações como título, autor, ISBN, gênero e quantidade
-- [ ] Atualizar Informações do Livro
-    - [ ] O Usuario deve fornecer o ID do livro e as informações atualizadas
-    - [ ] O sistema deve verificar se o livro existe no banco de dados
-- [ ] Excluir Livro do Sistema
-    - [ ] O Usuários devem fornecer o ID do livro a ser excluído
-    - [ ] Não deve exluir livros que estão emprestados
+- [x] Registrar Novo Livro
+    - [x] O Usuario deve fornecer informações como título, autor, ISBN, gênero e quantidade
 - [ ] Buscar Livros por Título, Autor ou ISBN
     - [ ] O Usuário pode buscar livros por título, autor ou ISBN
     - [ ] O Usuário deve visualizar detalhes de cada livro, como disponibilidade e quantidade
@@ -73,3 +67,8 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 - **Manutenibilidade**: O código do sistema deve ser bem estruturado e documentado, facilitando futuras atualizações e manutenções.
 - **Escalabilidade**: O sistema deve ser projetado para ser escalável, permitindo que ele cresça conforme a demanda sem comprometer o desempenho.
 
+### Reposiotry
+- [ ] BookRespository
+    - [ ] save(Book) => void
+- [ ] StudentRepository
+- [ ] UserRepository

@@ -3,6 +3,7 @@ import RegisterBookUseCase from '../RegisterBookUseCase';
 describe('RegisterBookUseCase', () => {
   const bookRepository = {
     save: jest.fn(),
+    search: jest.fn(),
   };
 
   const book = {

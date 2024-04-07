@@ -1,5 +1,7 @@
+import BookRepository from '../repository/BookRepository';
+
 export default class RegisterBookUseCase {
-  constructor(readonly bookRepository: any) {}
+  constructor(readonly bookRepository: BookRepository) {}
 
   async execute(input: Input) {
     const { title, author, isbn, genre, quantity } = input;
