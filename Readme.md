@@ -28,12 +28,12 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 - [ ] Registrar Novo Aluno
     - [x] O Usuário devem fornecer informações como nome, matricula
     - [ ] A Matricula deve ser única
-- [ ] Registrar Empréstimo de Livro
+- [x] Registrar Empréstimo de Livro
     - [x] O usuario deve fornecer o ID do aluno e o ID do livro emprestado
     - [x] Não deve emprestar livros que não estão disponíveis
     - [x] Não deve emprestar livros para alunos que já tem livro emprestado
-    - [ ] Não deve emprestar livros para alunos que estão na black list com data de validade ativa
-    - [ ] Não deve emprestar livros para alunos que estiveram 5 vezes na black list
+    - [x] Não deve emprestar livros para alunos que estão na black list com data de validade ativa
+    - [x] Não deve emprestar livros para alunos que estiveram 5 vezes na black list
     - [x] Deve registrar a data de empréstimo
     - [x] Deve registrar a data que o livro deve ser devolvido, após 7 dias
 - [ ] Registrar Devolução de Livro
@@ -63,7 +63,13 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 ### Reposiotry
 - [ ] BookRespository
     - [ ] save(Book) => void
+    - [ ] findById(id: String) => Book
     - [ ] search(value: String) => Book[]
 - [ ] StudentRepository
     - [ ] save(Student) => void
-- [ ] UserRepository
+    - [ ] findById(id: String) => Student
+- [ ] BanListRepository
+    - [ ] save(BanList) => void
+    - [ ] findById(id: String) => BanList
+    - [ ] findByStudent(studentId: Student) => BanList
+    - [ ] existsLend(lendId: string) => boolean

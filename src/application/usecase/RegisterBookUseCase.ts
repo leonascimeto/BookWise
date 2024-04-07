@@ -1,3 +1,4 @@
+import Book from '../../domain/entity/Book';
 import BookRepository from '../repository/BookRepository';
 
 export default class RegisterBookUseCase {
@@ -6,7 +7,8 @@ export default class RegisterBookUseCase {
   async execute(input: Input) {
     const { title, author, isbn, genre, quantity } = input;
     if (!title || !author || !isbn || !genre || !quantity) throw new Error('Invalid input');
-    await this.bookRepository.save({ title, author, isbn, genre, quantity });
+    const book = Book.build({ title, author, isbn, genre, quantity });
+    await this.bookRepository.save(book);
   }
 }
 

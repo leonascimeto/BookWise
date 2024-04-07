@@ -19,7 +19,7 @@ describe('RegisterBookUseCase', () => {
     const sut = new RegisterBookUseCase(bookRepository);
 
     expect(await sut.execute(book)).toBeUndefined();
-    expect(bookRepository.save).toHaveBeenCalledWith(book);
+    expect(bookRepository.save).toHaveBeenCalledWith(expect.objectContaining(book));
     expect(bookRepository.save).toHaveBeenCalledTimes(1);
   });
 
