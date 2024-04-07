@@ -4,6 +4,7 @@ describe('RegisterBookUseCase', () => {
   const bookRepository = {
     save: jest.fn(),
     search: jest.fn(),
+    findById: jest.fn(),
   };
 
   const book = {

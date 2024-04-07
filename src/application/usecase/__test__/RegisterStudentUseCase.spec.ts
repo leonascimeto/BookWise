@@ -3,6 +3,7 @@ import RegisterStudentUseCase from '../RegisterStudentUseCase';
 describe('RegisterStudentUseCase', () => {
   const studentRepository = {
     save: jest.fn(),
+    findById: jest.fn(),
   };
 
   const student = {
@@ -15,7 +16,7 @@ describe('RegisterStudentUseCase', () => {
 
     expect(await sut.execute(student)).toBeUndefined();
 
-    expect(studentRepository.save).toHaveBeenCalledWith(student);
+    expect(studentRepository.save).toHaveBeenCalledWith(expect.objectContaining(student));
     expect(studentRepository.save).toHaveBeenCalledTimes(1);
   });
 

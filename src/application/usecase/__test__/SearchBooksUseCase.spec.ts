@@ -4,6 +4,7 @@ describe('SearchBooksUseCase', () => {
   const bookRepository = {
     search: jest.fn(),
     save: jest.fn(),
+    findById: jest.fn(),
   };
 
   const input = {
