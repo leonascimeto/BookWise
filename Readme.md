@@ -22,16 +22,16 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 ### Requisitos Funcionais:
 - [x] Registrar Novo Livro
     - [x] O Usuario deve fornecer informações como título, autor, ISBN, gênero e quantidade
-- [x] Buscar Livros por Título, Autor ou ISBN
+- [ ] Buscar Livros por Título, Autor ou ISBN
     - [x] O Usuário pode buscar livros por título, autor ou ISBN
     - [ ] O Usuário deve visualizar detalhes de cada livro, como disponibilidade e quantidade
 - [ ] Registrar Novo Aluno
-    - [ ] O Usuário devem fornecer informações como nome, matricula
+    - [x] O Usuário devem fornecer informações como nome, matricula
     - [ ] A Matricula deve ser única
 - [ ] Registrar Empréstimo de Livro
-    - [ ] O usuario deve fornecer o ID do aluno e o ID do livro emprestado
-    - [ ] Não deve emprestar livros que não estão disponíveis
-    - [ ] Não deve emprestar livros para alunos que já tem livro emprestado
+    - [x] O usuario deve fornecer o ID do aluno e o ID do livro emprestado
+    - [x] Não deve emprestar livros que não estão disponíveis
+    - [x] Não deve emprestar livros para alunos que já tem livro emprestado
     - [ ] Não deve emprestar livros para alunos que estão na black list com data de validade ativa
     - [ ] Não deve emprestar livros para alunos que estiveram 5 vezes na black list
     - [ ] Deve registrar a data de empréstimo
