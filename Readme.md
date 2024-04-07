@@ -34,8 +34,8 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
     - [x] Não deve emprestar livros para alunos que já tem livro emprestado
     - [ ] Não deve emprestar livros para alunos que estão na black list com data de validade ativa
     - [ ] Não deve emprestar livros para alunos que estiveram 5 vezes na black list
-    - [ ] Deve registrar a data de empréstimo
-    - [ ] Deve registrar a data que o livro deve ser devolvido, após 7 dias
+    - [x] Deve registrar a data de empréstimo
+    - [x] Deve registrar a data que o livro deve ser devolvido, após 7 dias
 - [ ] Registrar Devolução de Livro
     - [ ] Deve registrar a data de devolução do livro
     - [ ] Deve adicionar aluno a lista de alunos que devolveram livros atrasados (black list)
