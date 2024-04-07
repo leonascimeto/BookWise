@@ -1,5 +1,7 @@
 import crypto from 'crypto';
 
+import BanList from './BanList';
+
 export default class Lend {
   static DAY_RETURN = 7;
   static QUANTITY_FOR_DEFINITION_BAN = 5;
@@ -25,8 +27,14 @@ export default class Lend {
       : new Lend(crypto.randomUUID(), bookId, studentId, outDate, returnDate, devolutionDate);
   }
 
-  studentAbleToLend(quantityLend: number) {
+  studentAbleToLend(input: { quantityLend: number; studentBanList: BanList[] }) {
+    const { quantityLend, studentBanList } = input;
     if (quantityLend >= Lend.MAXIMUM_LEND_PER_STUDENT) throw new Error('Student not able to lend, maximum reached');
+    if (studentBanList.length >= Lend.QUANTITY_FOR_DEFINITION_BAN) throw new Error('Student banned');
+    for (const ban of studentBanList) {
+      if (!ban.expiredAt) continue;
+      if (new Date(ban.expiredAt) > new Date(this.outDate)) throw new Error('Student is in penalty period');
+    }
   }
 
   bookIsDisponible(quantityLend: number, quantityBook: number) {
