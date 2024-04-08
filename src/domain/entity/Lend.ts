@@ -12,11 +12,11 @@ export default class Lend {
     readonly bookId: string,
     readonly studentId: string,
     readonly outDate: string,
-    readonly returnDate?: string,
+    private returnDate?: string,
     readonly devolutionDate?: string,
   ) {
     if (this.devolutionDate) {
-      this.devolutionDate = this.defineDevolutionDate();
+      this.devolutionDate = devolutionDate || this.defineDevolutionDate();
     }
   }
 
@@ -45,6 +45,15 @@ export default class Lend {
     const date = new Date(this.outDate);
     date.setDate(date.getDate() + Lend.DAY_RETURN);
     return date.toISOString();
+  }
+
+  refundBook(refundDate: string) {
+    this.returnDate = refundDate;
+  }
+
+  isLateDevolution() {
+    if (!this.returnDate || !this.devolutionDate) return false;
+    return new Date(this.devolutionDate) < new Date(this.returnDate);
   }
 }
 
