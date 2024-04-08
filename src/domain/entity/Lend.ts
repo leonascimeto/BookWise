@@ -6,18 +6,18 @@ export default class Lend {
   static DAY_RETURN = 7;
   static QUANTITY_FOR_DEFINITION_BAN = 5;
   static MAXIMUM_LEND_PER_STUDENT = 1;
+  returnDate?: string | null;
 
   private constructor(
     readonly id: string,
     readonly bookId: string,
     readonly studentId: string,
     readonly outDate: string,
-    readonly returnDate?: string,
+    returnDate?: string | null,
     readonly devolutionDate?: string,
   ) {
-    if (this.devolutionDate) {
-      this.devolutionDate = this.defineDevolutionDate();
-    }
+    this.devolutionDate = devolutionDate || this.defineDevolutionDate();
+    this.returnDate = returnDate || null;
   }
 
   static build(input: Input) {
@@ -45,6 +45,15 @@ export default class Lend {
     const date = new Date(this.outDate);
     date.setDate(date.getDate() + Lend.DAY_RETURN);
     return date.toISOString();
+  }
+
+  refundBook(refundDate: string) {
+    this.returnDate = refundDate;
+  }
+
+  isLateDevolution() {
+    if (!this.returnDate || !this.devolutionDate) return false;
+    return new Date(this.devolutionDate) < new Date(this.returnDate);
   }
 }
 

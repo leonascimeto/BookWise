@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "lint:fix": "eslint --fix --ext .js,.mjs,.ts,.json .",
-    "test": "jest --runInBand",
+    "test": "jest --runInBand --passWithNoTests",
     "test:staged": "npm run test --findRelatedTests",
     "prepare": "husky install"
   },
