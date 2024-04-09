@@ -13,6 +13,7 @@ describe('RefundBookUseCase', () => {
     countLendByStudentId: jest.fn(),
     save: jest.fn(),
     findById: jest.fn(),
+    findPendingLends: jest.fn(),
   };
 
   const banListRepository = {

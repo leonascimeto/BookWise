@@ -5,4 +5,5 @@ export default interface LendRepository {
   findById(id: string): Promise<Lend>;
   countLendByBookId(bookId: string): Promise<number>;
   countLendByStudentId(studentId: string): Promise<number>;
+  findPendingLends(): Promise<Lend[]>;
 }

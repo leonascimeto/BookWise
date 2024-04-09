@@ -15,7 +15,6 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 - [ ] Excluir Aluno do Sistema
 - [ ] Registrar Empréstimo de Livro
 - [ ] Registrar Devolução de Livro
-- [ ] Adicionar Aluno à Black List
 - [ ] Buscar Alunos na Black List
 - [ ] Buscar emprestimos pendententes
 
@@ -36,22 +35,14 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
     - [x] Não deve emprestar livros para alunos que estiveram 5 vezes na black list
     - [x] Deve registrar a data de empréstimo
     - [x] Deve registrar a data que o livro deve ser devolvido, após 7 dias
-- [ ] Registrar Devolução de Livro
-    - [ ] Deve registrar a data de devolução do livro
-    - [ ] Deve adicionar aluno a lista de alunos que devolveram livros atrasados (black list)
-- [ ] Adicionar Aluno à Black List
-    - [ ] Sistema deve adicionar alunos que devolveram livros atrasados à black list no ato da devolução
-    - [ ] Deve registrar a data de inclusão na black list
-    - [ ] Deve registrar o id do empresimo que originou a inclusão na black list
-    - [ ] Deve informar a data de validade da inclusão na black list (14 dias)
+- [x] Registrar Devolução de Livro
+    - [x] Deve registrar a data de devolução do livro
+    - [x] Deve adicionar aluno a ban list por 14 dias caso o livro seja devolvido após a data de devolução
 - [ ] Buscar Alunos na Black List
     - [ ] O sistema deve retornar uma lista de alunos que estão na black list com data de validade ativa
     - [ ] Os usuários podem visualizar detalhes de cada aluno, como data de inclusão e data de validade e informação do emprestimo que originou a inclusão
-- [ ] Buscar emprestimos pendententes
-    - [ ] Os bibliotecários podem visualizar detalhes de cada emprestimo, como data de emprestimo e data de devolução, aluno e livro emprestado
-- [ ] Verificar Disponibilidade de Livro
-    - [ ] Usuario deve informar id do livro
-    - [ ] Sistema deve retornar a quantidade disponível do livro
+- [x] Buscar emprestimos pendententes
+    - [x] Os bibliotecários podem visualizar detalhes de cada emprestimo, como data de emprestimo e data de devolução, aluno e livro emprestado
 
 ### Requisitos Não Funcionais:
 - **Segurança**: O acesso ao sistema deve ser protegido por autenticação, garantindo que apenas bibliotecários autorizados possam realizar operações de modificação e exclusão.
