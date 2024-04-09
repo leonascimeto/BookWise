@@ -5,6 +5,7 @@ describe('LendBookUseCase', () => {
     findById: jest.fn(),
     save: jest.fn(),
     search: jest.fn(),
+    existsISBN: jest.fn(),
   };
 
   const studentRepository = {
