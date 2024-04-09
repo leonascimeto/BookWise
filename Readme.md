@@ -38,9 +38,6 @@ Desenvolvimento de um sistema de gerenciamento de biblioteca escolar para regist
 - [x] Registrar Devolução de Livro
     - [x] Deve registrar a data de devolução do livro
     - [x] Deve adicionar aluno a ban list por 14 dias caso o livro seja devolvido após a data de devolução
-- [ ] Buscar Alunos na Black List
-    - [ ] O sistema deve retornar uma lista de alunos que estão na black list com data de validade ativa
-    - [ ] Os usuários podem visualizar detalhes de cada aluno, como data de inclusão e data de validade e informação do emprestimo que originou a inclusão
 - [x] Buscar emprestimos pendententes
     - [x] Os bibliotecários podem visualizar detalhes de cada emprestimo, como data de emprestimo e data de devolução, aluno e livro emprestado
 

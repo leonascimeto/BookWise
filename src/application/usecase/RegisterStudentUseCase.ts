@@ -7,6 +7,8 @@ export default class RegisterStudentUseCase {
   async execute(input: Input) {
     const { name, matriculation } = input;
     if (!name || !matriculation) throw new Error('Invalid student data');
+    const matriculationExist = await this.studentRepository.matriculationExists(matriculation);
+    if (matriculationExist) throw new Error('Matriculation already exists');
     const student = Student.build({ matriculation, name });
     await this.studentRepository.save(student);
   }

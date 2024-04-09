@@ -10,6 +10,7 @@ describe('LendBookUseCase', () => {
   const studentRepository = {
     findById: jest.fn(),
     save: jest.fn(),
+    matriculationExists: jest.fn(),
   };
 
   const lendRepository = {
