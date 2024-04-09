@@ -9,8 +9,8 @@ describe('RefundBookUseCase', () => {
   };
 
   const lendRepository = {
-    countLendByBookId: jest.fn(),
-    countLendByStudentId: jest.fn(),
+    countPeendingLendByBookId: jest.fn(),
+    countPeendingLendByStudentId: jest.fn(),
     save: jest.fn(),
     findById: jest.fn(),
     findPendingLends: jest.fn(),

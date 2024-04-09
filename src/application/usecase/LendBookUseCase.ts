@@ -19,8 +19,8 @@ export default class LendBookUseCase {
     const student = await this.studentRepository.findById(studentId);
     if (!student) throw new Error('Student not found');
     const lend = Lend.build({ bookId, studentId, outDate });
-    const quanityBookLended = await this.lendRepository.countLendByBookId(book.id);
-    const quantityStudentLended = await this.lendRepository.countLendByStudentId(student.id);
+    const quanityBookLended = await this.lendRepository.countPeendingLendByBookId(book.id);
+    const quantityStudentLended = await this.lendRepository.countPeendingLendByStudentId(student.id);
     const studentBanList = await this.banListRepository.findByStudent(student.id);
     lend.studentAbleToLend({ quantityLend: quantityStudentLended, studentBanList });
     lend.bookIsDisponible(quanityBookLended, book.quantity);

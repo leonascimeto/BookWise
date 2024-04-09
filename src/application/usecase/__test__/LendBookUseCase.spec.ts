@@ -13,8 +13,8 @@ describe('LendBookUseCase', () => {
   };
 
   const lendRepository = {
-    countLendByBookId: jest.fn(),
-    countLendByStudentId: jest.fn(),
+    countPeendingLendByBookId: jest.fn(),
+    countPeendingLendByStudentId: jest.fn(),
     save: jest.fn(),
     findById: jest.fn(),
     findPendingLends: jest.fn(),
@@ -45,8 +45,8 @@ describe('LendBookUseCase', () => {
   test('should lend a book', async () => {
     bookRepository.findById.mockResolvedValue(book);
     studentRepository.findById.mockResolvedValue(student);
-    lendRepository.countLendByBookId.mockResolvedValue(0);
-    lendRepository.countLendByStudentId.mockResolvedValue(0);
+    lendRepository.countPeendingLendByBookId.mockResolvedValue(0);
+    lendRepository.countPeendingLendByStudentId.mockResolvedValue(0);
     banListRepository.findByStudent.mockResolvedValue([]);
 
     const sut = new LendBookUseCase(bookRepository, studentRepository, lendRepository, banListRepository);
@@ -57,8 +57,8 @@ describe('LendBookUseCase', () => {
   test('should throw an error when book is not available', async () => {
     bookRepository.findById.mockResolvedValue(book);
     studentRepository.findById.mockResolvedValue(student);
-    lendRepository.countLendByBookId.mockResolvedValue(1);
-    lendRepository.countLendByStudentId.mockResolvedValue(0);
+    lendRepository.countPeendingLendByBookId.mockResolvedValue(1);
+    lendRepository.countPeendingLendByStudentId.mockResolvedValue(0);
 
     const sut = new LendBookUseCase(bookRepository, studentRepository, lendRepository, banListRepository);
 
@@ -70,8 +70,8 @@ describe('LendBookUseCase', () => {
   test('should throw an error when student not able to lend', async () => {
     bookRepository.findById.mockResolvedValue(book);
     studentRepository.findById.mockResolvedValue(student);
-    lendRepository.countLendByBookId.mockResolvedValue(0);
-    lendRepository.countLendByStudentId.mockResolvedValue(1);
+    lendRepository.countPeendingLendByBookId.mockResolvedValue(0);
+    lendRepository.countPeendingLendByStudentId.mockResolvedValue(1);
 
     const sut = new LendBookUseCase(bookRepository, studentRepository, lendRepository, banListRepository);
 
@@ -83,8 +83,8 @@ describe('LendBookUseCase', () => {
   test('should throw an error when student is in penalty ban', async () => {
     bookRepository.findById.mockResolvedValue(book);
     studentRepository.findById.mockResolvedValue(student);
-    lendRepository.countLendByBookId.mockResolvedValue(0);
-    lendRepository.countLendByStudentId.mockResolvedValue(0);
+    lendRepository.countPeendingLendByBookId.mockResolvedValue(0);
+    lendRepository.countPeendingLendByStudentId.mockResolvedValue(0);
     banListRepository.findByStudent.mockResolvedValue([
       {
         id: 'any_id',
