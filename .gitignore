@@ -5,3 +5,6 @@ coverage
 .idea
 dist
 build
+*.key
+.scannerwork
+sonar-project.properties
