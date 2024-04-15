@@ -1,6 +1,6 @@
 import StudentRepository from '../../../../application/repository/StudentRepository';
 import Student from '../../../../domain/entity/Student';
-import { dbSequelize } from '../entity';
+import { dbSequelize } from '..';
 
 export default class StudentSequelizeRepository implements StudentRepository {
   private studentDao = dbSequelize.StudentEntitySequelize;

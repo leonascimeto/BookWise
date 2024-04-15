@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 
 export default class BanList {
-  static DAYS_TO_EXPIRE = 15;
+  static readonly DAYS_TO_EXPIRE = 15;
   private constructor(
     readonly id: string,
     readonly lendId: string,
