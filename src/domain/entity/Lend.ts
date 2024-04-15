@@ -3,9 +3,9 @@ import crypto from 'crypto';
 import BanList from './BanList';
 
 export default class Lend {
-  static DAY_RETURN = 7;
-  static QUANTITY_FOR_DEFINITION_BAN = 5;
-  static MAXIMUM_LEND_PER_STUDENT = 1;
+  static readonly DAY_RETURN = 7;
+  static readonly QUANTITY_FOR_DEFINITION_BAN = 5;
+  static readonly MAXIMUM_LEND_PER_STUDENT = 1;
   returnDate?: string | null;
 
   private constructor(
@@ -16,8 +16,8 @@ export default class Lend {
     returnDate?: string | null,
     readonly devolutionDate?: string,
   ) {
-    this.devolutionDate = devolutionDate || this.defineDevolutionDate();
-    this.returnDate = returnDate || null;
+    this.devolutionDate = devolutionDate ?? this.defineDevolutionDate();
+    this.returnDate = returnDate ?? null;
   }
 
   static build(input: Input) {
