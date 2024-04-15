@@ -1,4 +1,4 @@
-import { dbSequelize } from './entity';
+import { dbSequelize } from '.';
 
 beforeAll(async () => {
   await dbSequelize.sequelize.sync({ force: true });

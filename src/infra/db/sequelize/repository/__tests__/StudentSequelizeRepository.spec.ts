@@ -1,5 +1,5 @@
 import Student from '../../../../../domain/entity/Student';
-import { dbSequelize } from '../../entity';
+import { dbSequelize } from '../..';
 import StudentSequelizeRepository from '../StudentSequelizeRepository';
 
 describe('StudentSequelizeRepository', () => {
