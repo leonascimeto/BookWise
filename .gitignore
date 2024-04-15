@@ -8,3 +8,4 @@ build
 *.key
 .scannerwork
 sonar-project.properties
+*.sqlite

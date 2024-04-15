@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "lint:fix": "eslint --fix --ext .js,.mjs,.ts,.json .",
-    "test": "jest --runInBand --passWithNoTests",
+    "test": "NODE_ENV=test jest --runInBand --passWithNoTests",
     "test:staged": "npm run test --findRelatedTests",
     "prepare": "husky install"
   },
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.5",
+    "@types/sequelize": "^4.28.20",
     "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
@@ -30,9 +31,14 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
+    "sequelize": "^6.37.3",
     "sinon": "^17.0.1",
+    "sqlite3": "^5.1.7",
     "ts-jest": "^29.1.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
