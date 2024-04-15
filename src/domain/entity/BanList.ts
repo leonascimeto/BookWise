@@ -8,7 +8,7 @@ export default class BanList {
     readonly studentId: string,
     readonly expiredAt?: string,
   ) {
-    this.expiredAt = expiredAt || this.defineExpiredAt();
+    this.expiredAt = expiredAt ?? this.defineExpiredAt();
   }
 
   static build(input: Input) {
