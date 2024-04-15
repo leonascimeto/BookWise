@@ -1,6 +1,6 @@
-import Student from '../../../../domain/entity/Student';
-import { dbSequelize } from '../entity';
-import StudentSequelizeRepository from './StudentSequelizeRepository';
+import Student from '../../../../../domain/entity/Student';
+import { dbSequelize } from '../../entity';
+import StudentSequelizeRepository from '../StudentSequelizeRepository';
 
 describe('StudentSequelizeRepository', () => {
   const studentDAO = dbSequelize.StudentEntitySequelize;
