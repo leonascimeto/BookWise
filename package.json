@@ -39,6 +39,7 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "zod": "^3.22.5"
   }
 }

@@ -1,11 +1,12 @@
 import RegisterStudentUseCase from '../../../application/usecase/RegisterStudentUseCase';
+import { HttpResponse } from '../HttpResponse';
 
 export default class RegisterStudentController {
   constructor(readonly registerStudentUseCase: RegisterStudentUseCase) {
     this.registerStudentUseCase = registerStudentUseCase;
   }
 
-  async handle(httpRquest: Input): Promise<Output> {
+  async handle(httpRquest: Input): Promise<HttpResponse<any>> {
     try {
       const { matriculation, name } = httpRquest.body;
       await this.registerStudentUseCase.execute({ matriculation, name });
@@ -21,9 +22,4 @@ type Input = {
     matriculation: string;
     name: string;
   };
-};
-
-type Output = {
-  status: number;
-  body?: any;
 };
