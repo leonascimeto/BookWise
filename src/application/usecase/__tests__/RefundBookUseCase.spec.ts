@@ -43,7 +43,7 @@ describe('RefundBookUseCase', () => {
     lendRepository.findById.mockResolvedValue(Lend.build(lend));
 
     const sut = new RefundBookUseCase(studentRepository, lendRepository, banListRepository);
-    expect(await sut.execute({ lendId: lend.id, studentId: student.id, refundDate: '2024-04-07' })).toBeUndefined();
+    expect(await sut.execute({ lendId: lend.id, refundDate: '2024-04-07' })).toBeUndefined();
     expect(banListRepository.save).not.toHaveBeenCalled();
   });
 
@@ -52,9 +52,7 @@ describe('RefundBookUseCase', () => {
     lendRepository.findById.mockResolvedValue(null);
 
     const sut = new RefundBookUseCase(studentRepository, lendRepository, banListRepository);
-    await expect(sut.execute({ lendId: lend.id, studentId: student.id, refundDate: '2024-04-07' })).rejects.toThrow(
-      'Lend not found',
-    );
+    await expect(sut.execute({ lendId: lend.id, refundDate: '2024-04-07' })).rejects.toThrow('Lend not found');
   });
 
   test('should throw an error when student is not found', async () => {
@@ -62,9 +60,7 @@ describe('RefundBookUseCase', () => {
     lendRepository.findById.mockResolvedValue(Lend.build(lend));
 
     const sut = new RefundBookUseCase(studentRepository, lendRepository, banListRepository);
-    await expect(sut.execute({ lendId: lend.id, studentId: student.id, refundDate: '2024-04-07' })).rejects.toThrow(
-      'Student not found',
-    );
+    await expect(sut.execute({ lendId: lend.id, refundDate: '2024-04-07' })).rejects.toThrow('Student not found');
   });
 
   test('should register student in ban list when late devolution', async () => {
@@ -72,7 +68,7 @@ describe('RefundBookUseCase', () => {
     lendRepository.findById.mockResolvedValue(Lend.build(lend));
 
     const sut = new RefundBookUseCase(studentRepository, lendRepository, banListRepository);
-    await sut.execute({ lendId: lend.id, studentId: student.id, refundDate: '2024-04-08' });
+    await sut.execute({ lendId: lend.id, refundDate: '2024-04-08' });
 
     expect(banListRepository.save).toHaveBeenCalled();
   });

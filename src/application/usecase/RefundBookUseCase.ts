@@ -11,10 +11,10 @@ export default class RefundBookUseCase {
   ) {}
 
   async execute(input: Input): Promise<void> {
-    const { lendId, studentId, refundDate } = input;
+    const { lendId, refundDate } = input;
     const lend = await this.lendRepository.findById(lendId);
     if (!lend) throw new Error('Lend not found');
-    const student = await this.studentRepository.findById(studentId);
+    const student = await this.studentRepository.findById(lend.studentId);
     if (!student) throw new Error('Student not found');
     lend.refundBook(refundDate);
     const isLate = lend.isLateDevolution();
@@ -28,6 +28,5 @@ export default class RefundBookUseCase {
 
 type Input = {
   lendId: string;
-  studentId: string;
   refundDate: string;
 };
