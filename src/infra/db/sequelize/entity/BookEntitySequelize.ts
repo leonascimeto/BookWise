@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model, Sequelize } from 'sequelize';
 
 import Book from '../../../../domain/entity/Book';
 
@@ -11,7 +11,7 @@ export class BookEntitySquelize extends Model {
   genre!: string;
   quantity!: number;
 
-  public static initModel(sequelize: any): void {
+  public static initModel(sequelize: Sequelize): void {
     this.init(
       {
         id: {

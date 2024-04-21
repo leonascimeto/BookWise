@@ -32,7 +32,5 @@ export type RefundBookRequest = {
   body: {
     refundDate: string;
   };
-  params: {
-    lendId: string;
-  };
+  params: any;
 };

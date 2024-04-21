@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import RegisterBookUseCase from '../../../application/usecase/RegisterBookUseCase';
-import { formatErrorResponse } from '../HttpResponse';
+import { formatErrorResponse, HttpResponse } from '../HttpResponse';
 
 const BookSchema = z.object({
   title: z
@@ -23,7 +23,7 @@ const BookSchema = z.object({
 export default class RegisterBookController {
   constructor(readonly registerBookUseCase: RegisterBookUseCase) {}
 
-  async handle(httpRquest: RegisterBookRequest): Promise<any> {
+  async handle(httpRquest: RegisterBookRequest): Promise<HttpResponse<any>> {
     try {
       const { title, author, genre, isbn, quantity } = BookSchema.parse(httpRquest.body);
       await this.registerBookUseCase.execute({ title, author, genre, isbn, quantity });

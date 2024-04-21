@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "NODE_ENV=development tsx watch src/main.ts",
     "build": "rimraf ./dist && tsc",
     "lint:fix": "eslint --fix --ext .js,.mjs,.ts,.json .",
     "test": "NODE_ENV=test jest --runInBand --passWithNoTests",
@@ -14,10 +15,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.5",
     "@types/sequelize": "^4.28.20",
     "@types/sinon": "^17.0.3",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "eslint": "^8.57.0",
@@ -34,12 +37,15 @@
     "sequelize": "^6.37.3",
     "sinon": "^17.0.1",
     "sqlite3": "^5.1.7",
+    "supertest": "^6.3.4",
     "ts-jest": "^29.1.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
     "zod": "^3.22.5"
   }
 }

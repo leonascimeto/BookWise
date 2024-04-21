@@ -16,7 +16,7 @@ const LendBookSchema = z.object({
 export default class LendBookController {
   constructor(private readonly lendBookUseCase: LendBookUseCase) {}
 
-  async handle(input: Input): Promise<HttpResponse<any>> {
+  async handle(input: LendBookRequest): Promise<HttpResponse<any>> {
     try {
       const { bookId, studentId, outDate } = LendBookSchema.parse(input.body);
       await this.lendBookUseCase.execute({ bookId, studentId, outDate });
@@ -27,7 +27,7 @@ export default class LendBookController {
   }
 }
 
-type Input = {
+export type LendBookRequest = {
   body: {
     bookId: string;
     studentId: string;

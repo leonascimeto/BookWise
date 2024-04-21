@@ -5,7 +5,7 @@ import { formatErrorResponse, HttpResponse } from '../HttpResponse';
 export default class FindPeendingLendsController {
   constructor(private readonly findPeendingLendsUseCase: FindPeendingLendsUseCase) {}
 
-  async handle(): Promise<HttpResponse<Lend[]> | any> {
+  async handle(): Promise<HttpResponse<Lend[] | any>> {
     try {
       const pendingLends = await this.findPeendingLendsUseCase.execute();
       return {
