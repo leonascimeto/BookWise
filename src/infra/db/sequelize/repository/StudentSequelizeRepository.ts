@@ -3,7 +3,7 @@ import Student from '../../../../domain/entity/Student';
 import { dbSequelize } from '..';
 
 export default class StudentSequelizeRepository implements StudentRepository {
-  private studentDao = dbSequelize.StudentEntitySequelize;
+  readonly studentDao = dbSequelize.StudentEntitySequelize;
   async findById(id: string): Promise<Student> {
     try {
       const student = await this.studentDao.findByPk(id);
