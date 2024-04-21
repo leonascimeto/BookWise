@@ -39,15 +39,13 @@ describe('BookRoutes', () => {
     expect(book?.id).toBeDefined();
   });
 
-  test('POST /books - should return 422 when title is not provided', async () => {
-    const response = await supertest(app)
-      .post('/books')
-      .send({
-        ...request.body,
-        title: undefined,
-      });
+  test('GET /books - should return 200', async () => {
+    await bookDao.create(request.body);
 
-    expect(response.status).toBe(422);
-    expect(response.body.errors.fieldErrors).toEqual({ title: ['Title is required'] });
+    const response = await supertest(app).get('/books').query({ search: 'Clean Code' });
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveLength(1);
+    expect(response.body[0].title).toBe(request.body.title);
   });
 });

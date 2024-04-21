@@ -28,7 +28,5 @@ export default class SearchBooksController {
 }
 
 export type SearchBookRequest = {
-  query: {
-    search: string;
-  };
+  query: any;
 };
