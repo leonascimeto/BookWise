@@ -8,6 +8,11 @@ export default class LendSequelizeRepository implements LendRepository {
   async save(lend: Lend): Promise<void> {
     try {
       const dao = this.lendDao.buildFromDomainModel(lend);
+      const exist = await this.lendDao.findByPk(dao.id);
+      if (exist) {
+        await exist.update(dao);
+        return;
+      }
       await dao.save();
     } catch (error: any) {
       console.error(error);
