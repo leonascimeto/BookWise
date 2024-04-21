@@ -5,7 +5,7 @@ import Book from '../../../../domain/entity/Book';
 import { dbSequelize } from '..';
 
 export default class BookSequelizeRepository implements BookRepository {
-  private readonly bookDao = dbSequelize.BookEntitySquelize;
+  readonly bookDao = dbSequelize.BookEntitySquelize;
 
   async save(book: Book): Promise<void> {
     try {

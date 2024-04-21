@@ -9,3 +9,4 @@ build
 .scannerwork
 sonar-project.properties
 *.sqlite
+*.http
