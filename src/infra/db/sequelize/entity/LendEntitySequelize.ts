@@ -19,7 +19,7 @@ export class LendEntitySequelize extends Model {
           primaryKey: true,
         },
         bookId: {
-          type: DataTypes.STRING,
+          type: DataTypes.UUID,
           allowNull: false,
           references: {
             model: 'books',
